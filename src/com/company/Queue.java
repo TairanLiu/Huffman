@@ -9,11 +9,15 @@ public class Queue {
         printing.add(me);
         while (printing.size()>0) {
             Container tbr = printing.get(0);
-            if (tbr.getFrequency()!=temp){
-                System.out.println("level: "+ tbr.getLevel()+ "/");
+            //System.out.println("temp:" + temp);
+            if (tbr.getLevel()!=temp){
+                //System.out.print("level: "+ tbr.getLevel()+ "/");
+                System.out.println(tbr.getFrequency());
                 temp++;
+                //System.out.println("temp:" + temp);
+            }else {
+                System.out.print(tbr.getFrequency());
             }
-            System.out.print(tbr.getFrequency());
             printing.remove(0);
             if (tbr.getConnectedLeft() != null) {
                 printing.add(tbr.getConnectedLeft());

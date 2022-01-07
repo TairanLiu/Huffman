@@ -65,6 +65,10 @@ public class Container implements Comparable<Container> {
         this.connectPrevious = connectPrevious;
     }
 
+    public void setLevel(int level) {
+        this.level = level;
+    }
+
     @Override
     public int compareTo (Container c){
         if (frequency > c.frequency){
