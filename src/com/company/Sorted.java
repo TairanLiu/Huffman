@@ -18,6 +18,7 @@ public class Sorted {
             Container lett = new Container((String) letter.getKey(),(int)letter.getValue());
             PriorityQueue.addToQueue(lett);
         }
+
     }
     public static void sortTheRest(){
         Container left;
@@ -49,9 +50,9 @@ public class Sorted {
                 temp = temp.connectedRight;
                 temp.increaseLevel();
             }*/
-            toBeAdded(newContainer);
+            //toBeAdded(newContainer);
             right.setConnectPrevious(newContainer);
-            right.setLevel(newContainer.getLevel()+1);
+            //right.setLevel(newContainer.getLevel()+1);
             PriorityQueue.addToQueue(newContainer);
         }
     }
@@ -59,12 +60,17 @@ public class Sorted {
         ArrayList<Container> toReturn = new ArrayList<Container>();
         Container pointer = a;
         while (pointer.getConnectedLeft() != null){
+            System.out.print(toReturn);
             toReturn.add(pointer.getConnectedLeft());
             toReturn.add(pointer.getConnectedRight());
+            pointer = toReturn.get(0);
+            pointer.increaseLevel();
+            toReturn.remove(0);
         }
         while (toReturn.size()>0){
             toReturn.get(0).increaseLevel();
-        }
+
+        }*/
     }
     //IDN if toString can work like this.
     public static void printEverything(){
