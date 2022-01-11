@@ -2,14 +2,15 @@ package com.company;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Comparator;
 import java.util.Iterator;
 
 public class Container implements Comparable<Container> {
     String root;
     Container connectedLeft;
     Container connectedRight;
-    int frequency;
-    int level = 0;
+    Integer frequency;
+    Integer level = 0;
     Container connectPrevious;
     public Container(String root, int frequency){
         this.root = root;
@@ -27,6 +28,7 @@ public class Container implements Comparable<Container> {
         connectedRight = cR;
         this.frequency = frequency;
     }
+
 
 
     public void setFrequency(int frequency) {
@@ -69,6 +71,8 @@ public class Container implements Comparable<Container> {
         this.level = level;
     }
 
+
+
     @Override
     public int compareTo (Container c){
         if (frequency > c.frequency){
@@ -76,4 +80,5 @@ public class Container implements Comparable<Container> {
         }
         else return frequency;
     }
+
 }

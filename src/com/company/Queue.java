@@ -7,6 +7,7 @@ public class Queue {
     static int temp = 0;
     static public void dequeue ( Container me){
         printing.add(me);
+
         while (printing.size()>0) {
             Container tbr = printing.get(0);
             //System.out.println("temp:" + temp);
@@ -25,7 +26,7 @@ public class Queue {
             if (tbr.getConnectedRight() != null) {
                 printing.add(tbr.getConnectedRight());
             }else{
-                System.out.print(tbr.root + ": "+tbr.frequency);
+                System.out.println(tbr.root + ": "+tbr.frequency);
             }
         }
     }

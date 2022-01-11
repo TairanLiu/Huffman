@@ -6,7 +6,8 @@ import java.util.Iterator;
 import java.util.Map;
 
 public class Sorted {
-   //  Unsorted.unsorted
+    public static PriorityQueue sortedFrequencyTable = new PriorityQueue();
+
     public static void sort(){
         placeSortedLetters();
         sortTheRest();
@@ -16,12 +17,21 @@ public class Sorted {
         Iterator throughUnsorted = Unsorted.unsorted.entrySet().iterator();
         while (throughUnsorted.hasNext()){
             Map.Entry letter = (Map.Entry) throughUnsorted.next();
-            Container lett = new Container((String) letter.getKey(),(int)letter.getValue());
+            Container lett = new Container((String) letter.getKey(),(Integer)letter.getValue());
             PriorityQueue.addToQueue(lett);
             findPath.findHuffmanPath.put(lett.getRoot(),lett);
         }
 
     }
+
+    /*public static void placeSortedLetters2(){
+        Iterator throughUnsorted = Unsorted.unsorted.entrySet().iterator();
+        while (throughUnsorted.hasNext()){
+            Map.Entry letter = (Map.Entry) throughUnsorted.next();
+            Container lett = new Container((String) letter.getKey(),(int)letter.getValue());
+        }
+
+    }*/
     public static void sortTheRest(){
         Container left;
         Container right;
@@ -69,7 +79,8 @@ public class Sorted {
             pointer.increaseLevel();
             toReturn.remove(0);
         }
-        while (toReturn.size()>0){
+        /*while (toReturn.size()>0){
+            System.out.println("check");
             toReturn.get(0).increaseLevel();
 
         }*/
