@@ -9,8 +9,8 @@ public class findPath {
         return findHuffmanPath.get(a).getFrequency();
     }
 
-    public String findPath(String letter){
-        Container currentContainer = findHuffmanPath.get("letter");
+    public static String findPath(String letter){
+        Container currentContainer = findHuffmanPath.get(letter);
         // potential null
         //Container cameFrom = currentContainer.getConnectPrevious();
         String pathWay = "";
