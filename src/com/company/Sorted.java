@@ -20,6 +20,7 @@ public class Sorted {
             Container lett = new Container((String) letter.getKey(),(Integer)letter.getValue());
             PriorityQueue.addToQueue(lett);
             findPath.findHuffmanPath.put(lett.getRoot(),lett);
+            //sortTheLevels();
         }
 
     }
@@ -32,6 +33,16 @@ public class Sorted {
         }
 
     }*/
+    private static int level = 0;
+    public static void sortTheLevels(Container r){
+        if (r.getConnectedLeft() != null){
+            r.setLevel(level);
+
+            level++;
+            sortTheLevels(r.getConnectedLeft());
+            sortTheLevels(r.getConnectedRight());
+        }
+    }
     public static void sortTheRest(){
         Container left;
         Container right;

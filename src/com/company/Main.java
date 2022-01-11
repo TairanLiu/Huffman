@@ -11,6 +11,7 @@ public class Main {
         Unsorted.placeUnsorted();
         Sorted.sort();
 
+
         String finalPath = "";
         for (int i = 0; i<Text.textLength();i++){
             finalPath = finalPath + findPath.findPath(Text.getText().substring(i,i+1));

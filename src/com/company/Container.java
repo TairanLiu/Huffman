@@ -6,7 +6,7 @@ import java.util.Comparator;
 import java.util.Iterator;
 
 public class Container implements Comparable<Container> {
-    String root;
+    String root = null;
     Container connectedLeft;
     Container connectedRight;
     Integer frequency;
