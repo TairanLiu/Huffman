@@ -1,6 +1,7 @@
 package com.company;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 
@@ -17,6 +18,7 @@ public class Sorted {
             Map.Entry letter = (Map.Entry) throughUnsorted.next();
             Container lett = new Container((String) letter.getKey(),(int)letter.getValue());
             PriorityQueue.addToQueue(lett);
+            findPath.findHuffmanPath.put(lett.getRoot(),lett);
         }
 
     }
@@ -78,4 +80,5 @@ public class Sorted {
         Queue.dequeue(answer);
         //System.out.println(answer.getClass());
     }
+
 }
