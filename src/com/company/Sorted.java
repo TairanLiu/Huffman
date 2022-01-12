@@ -35,12 +35,15 @@ public class Sorted {
     }*/
     private static int level = 0;
     public static void sortTheLevels(Container r){
-        if (r.getConnectedLeft() != null){
+        if (r.getConnectedLeft() != null || r.getConnectedRight() != null){
             r.setLevel(level);
 
             level++;
+            System.out.println(level);
             sortTheLevels(r.getConnectedLeft());
+            //System.out.println("left processed" + r.getConnectedLeft().getFrequency());
             sortTheLevels(r.getConnectedRight());
+            //System.out.println("right processed" + r.getConnectedRight().getFrequency());
         }
     }
     public static void sortTheRest(){
