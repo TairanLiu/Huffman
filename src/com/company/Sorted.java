@@ -41,11 +41,19 @@ public class Sorted {
             level++;
             System.out.println(level);
             sortTheLevels(r.getConnectedLeft());
-            //System.out.println("left processed" + r.getConnectedLeft().getFrequency());
+            System.out.println("left processed" + r.getConnectedLeft().getLevel());
             sortTheLevels(r.getConnectedRight());
-            //System.out.println("right processed" + r.getConnectedRight().getFrequency());
+            System.out.println("right processed" + r.getConnectedRight().getLevel());
         }
     }
+    /*public static Container pointer;
+    public static void sortTheLevels( Container r){
+        pointer = r;
+        while (r.getConnectedLeft() != null || r.getConnectedRight() != null){
+
+        }
+    }*/
+
     public static void sortTheRest(){
         Container left;
         Container right;
