@@ -12,23 +12,24 @@ public class Container implements Comparable<Container> {
     Integer frequency;
     Integer level = 0;
     Container connectPrevious;
-    public Container(String root, int frequency){
+
+    public Container(String root, int frequency) {
         this.root = root;
         this.frequency = frequency;
     }
+
     /*public Container(int frequency, String cL, String cR){
         //this.root = root;
         connectedLeft = cL;
         connectedRight = cR;
         this.frequency = frequency;
     }*/
-    public Container(int frequency, Container cL, Container cR){
+    public Container(int frequency, Container cL, Container cR) {
         //this.root = root;
         connectedLeft = cL;
         connectedRight = cR;
         this.frequency = frequency;
     }
-
 
 
     public void setFrequency(int frequency) {
@@ -72,13 +73,45 @@ public class Container implements Comparable<Container> {
     }
 
 
-
     @Override
-    public int compareTo (Container c){
-        if (frequency > c.frequency){
+    public int compareTo(Container c) {
+        if (frequency > c.frequency) {
             return c.frequency;
-        }
-        else return frequency;
+        } else return frequency;
     }
 
+    /*
+         [root (5)] -> updateAllNodeLevels so this would be the root container since it's the one calling
+      [3]       [2:l]
+
+     */
+
+    public static void updateAllNodeLevels(Container container) {
+        Container currentNode = container;
+        //System.out.println("hello");
+        if (container.getConnectPrevious() == null) {
+            currentNode.setLevel(0);
+        if (currentNode.getConnectedLeft() != null) {
+            updateAllNodeLevels(currentNode.getConnectedLeft());
+        }
+        if (currentNode.getConnectedRight() != null) {
+            updateAllNodeLevels(currentNode.getConnectedRight());
+        }
+        }
+        if (container.getConnectPrevious() != null) {
+            int previousLevel = currentNode.getConnectPrevious().getLevel();
+            System.out.println("Currently at: " + currentNode.getFrequency());
+            System.out.println("Previous Node Level: " + previousLevel);
+            previousLevel++;
+            currentNode.setLevel(previousLevel);
+            if (currentNode.getConnectedLeft() != null) {
+                updateAllNodeLevels(currentNode.getConnectedLeft());
+            }
+            if (currentNode.getConnectedRight() != null) {
+                updateAllNodeLevels(currentNode.getConnectedRight());
+            }
+        }
+    }
 }
+
+

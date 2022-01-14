@@ -7,7 +7,8 @@ public class Queue {
     static int temp = 0;
     static public void dequeue ( Container me){
         printing.add(me);
-        Sorted.sortTheLevels(me);
+        //Sorted.sortTheLevels(me);
+        Container.updateAllNodeLevels(me);
         // levels are set
         while (printing.size()>0) {
             Container tbr = printing.get(0);

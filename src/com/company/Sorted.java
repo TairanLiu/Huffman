@@ -110,6 +110,7 @@ public class Sorted {
     //IDN if toString can work like this.
     public static void printEverything(){
         Container answer = PriorityQueue.priorityQueue.poll();
+       // Container.updateAllNodeLevels(answer);
         Queue.dequeue(answer);
         //System.out.println(answer.getClass());
     }
